@@ -2,27 +2,20 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {connect} from 'react-redux'
 
-class Child extends Component {
+export default class Child extends Component {
   constructor(props) {
     super(props);
     console.log("Constructor");
 }
     render() {
-      console.log("child", this.props.counter);
+      console.log("child", this.props.value);
         return (
             <View>
-                <Text style = {styles.text} >{this.props.counter}</Text>
+                <Text style = {styles.text} >{this.props.value}</Text>
             </View>
         )
     }
 }
-
-
-const mapStateToProps = state => ({
-  counter: state.counter
-});
-export default connect(mapStateToProps, null)(Child);
-
 
 const styles =StyleSheet.create({
     text: {
