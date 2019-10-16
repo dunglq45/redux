@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import ButtonComp from './components/Button';
-
-class Main1 extends Component{
+class Content extends Component{
   render() {
-    const {navigation} = this.props;
+    const {navigate} = this.props.navigation;
     return (
       <View styled={{
         flex :1,
@@ -14,11 +13,12 @@ class Main1 extends Component{
         justifyContent:'center'
       }}>
         <Text styled={{fontWeight:'bold', fontSize:22,color :'white'}}>
-        {this.props.counter.count}
+          {this.props.counter.count}
         </Text>
         <View style={styles.view}>
-          <ButtonComp style={styles.button} title ='Home' onPress={() => navigation.navigate('Home')}></ButtonComp>
-          <ButtonComp style={styles.button} title ='Forum' onPress={() => navigation.navigate('Forum')}></ButtonComp>
+            <ButtonComp style={styles.button} title ='Profile' onPress={() => navigate('Profile')}></ButtonComp>
+            <ButtonComp style={styles.button} title ='Setting' onPress={() => navigate('Setting')}></ButtonComp>
+            <ButtonComp style={styles.button} title ='Logout' onPress={() => navigate('Logout')}></ButtonComp>
         </View>
       </View>
     )
@@ -31,18 +31,16 @@ const styles = StyleSheet.create({
     flexDirection :'row',
     marginTop:0,
     alignItems:'center',
-
-},
-button:{
+  
+  },
+  button:{
   width: 80,
   height : 40,
   backgroundColor: 'blue',
-
-},
-})
-
+  
+  },
+  })
 const mapStateToProps = state => ({
   counter: state.counter
 });
-
-export default connect(mapStateToProps, null)(Main1);
+export default connect(mapStateToProps, null)(Content);

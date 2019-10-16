@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import ButtonComp from './components/Button';
-class Home extends Component{
+class Setting extends Component{
   render() {
     const {navigation} = this.props;
     return (
@@ -16,30 +16,32 @@ class Home extends Component{
           {this.props.counter.count}
         </Text>
         <View style={styles.view}>
-            <ButtonComp style={styles.button} title ='Home1' onPress={() => navigation.navigate('Home1')}></ButtonComp>
-            <ButtonComp style={styles.button} title ='Home2' onPress={() => navigation.navigate('Home2')}></ButtonComp>
+          <ButtonComp style={styles.button} title ='opress1' onPress={() => navigation.navigate('ProfileContent')}></ButtonComp>
+          <ButtonComp style={styles.button} title ='opress2' onPress={() => navigation.navigate('ProfileUser')}></ButtonComp>
         </View>
-        </View>
+      </View>
     )
     
   }
 }
 const styles = StyleSheet.create({
-view:{
-  display : 'flex',
-  flexDirection :'row',
-  marginTop:0,
-  alignItems:'center',
+  view:{
+    display : 'flex',
+    flexDirection :'row',
+    marginTop:0,
+    alignItems:'center',
 
 },
 button:{
-width: 80,
-height : 40,
-backgroundColor: 'blue',
+  width: 80,
+  height : 40,
+  backgroundColor: 'blue',
 
 },
 })
+
+
 const mapStateToProps = state => ({
   counter: state.counter
 });
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, null)(Setting);

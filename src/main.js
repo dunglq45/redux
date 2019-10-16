@@ -12,42 +12,42 @@ class Main extends Component {
   handleDecrease = () => {
     this.props.counterDecrease();
   };
-    render() {
-      const {navigation} = this.props;
-        return (
-            <View style={{
-                flex: 1,
-                width: '100%',
-                justifyContent: 'center'
-            }}
-            >
-                <View style={{
-                    flex: 1,
-                    justifyContent:"center",
-                    alignItems:"center"
-                }}>
-                    <Child value = {this.props.counter.count}/>
-                </View>
-                <View style = {{flex:1}}>
-                    <ButtonComp
-                        title="Increase"
-                        textColor="#fff"
-                        bgColor="#397af8"
-                        onPress={() =>{this.handleIncrease()}}/>
-                    <ButtonComp
-                        title="Decrease"
-                        bgColor="orange"
-                        onPress={() =>{this.handleDecrease()}}/>
-                </View>
-                <View style={styles.view}>
-                  <ButtonComp style={styles.button} title ='opress1' onPress={() => navigation.navigate('Main1')}></ButtonComp>
-                  <ButtonComp style={styles.button} title ='opress2' onPress={() => navigation.navigate('Main2')}></ButtonComp>
-                </View>
-                
-            </View>
-        )
-    }
-}
+  render() {
+    const {navigation} = this.props;
+    return (
+      <View style={{
+          flex: 1,
+          width: '100%',
+          justifyContent: 'center'
+      }}
+      >
+        <View style={{
+          flex: 1,
+          justifyContent:"center",
+          alignItems:"center"
+        }}>
+          <Child value = {this.props.counter.count}/>
+        </View>
+        <View style = {{flex:1}}>
+          <ButtonComp
+            title="Increase"
+            textColor="#fff"
+            bgColor="#397af8"
+            onPress={() =>{this.handleIncrease()}}/>
+          <ButtonComp
+            title="Decrease"
+            bgColor="orange"
+            onPress={() =>{this.handleDecrease()}}/>
+        </View>
+        <View style={styles.view}>
+          <ButtonComp style={styles.button} title ='opress1' onPress={() => navigation.navigate('Main1')}></ButtonComp>
+          <ButtonComp style={styles.button} title ='opress2' onPress={() => navigation.navigate('Main2')}></ButtonComp>
+        </View>
+          
+      </View>
+    )
+  }
+  }
 const mapStateToProps = state => ({
   counter: state.counter
 });
